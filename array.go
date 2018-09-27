@@ -238,4 +238,11 @@ func ArrayMap(a map[string]interface{}, f func(interface{}) bool) ret [string]in
 		ret[k] = f(v)
 	}
 }
-	
+
+// ArrayCountValues array_count_values — Counts all the values of an array
+func ArrayCountValues(a[]string) m map[string]int {
+	m := make(map[string]int)
+	for _,v := range a {
+		m[v]++
+	}
+}
