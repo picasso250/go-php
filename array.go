@@ -246,3 +246,12 @@ func ArrayCountValues(a[]string) m map[string]int {
 		m[v]++
 	}
 }
+
+// ArrayReduce array_reduce — Iteratively reduce the array to a single value using a callback function
+// ArrayReduce::func(a[]T, f func(T,T)T, init T) T
+func ArrayReduce(a[]interface{}, f func(interface{}, interface{}) interface{}, init interface{}) s interface{} {
+	s := init
+	for _,v := range a {
+		s = f(v, s)
+	}
+}
