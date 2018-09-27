@@ -154,3 +154,15 @@ func getCommon(array interface{}) (reflect.Type, reflect.Value, int) {
 	l := v.Len()
 	return t, v, l
 }
+
+
+
+// ArrayColum array_column — Return the values from a single column in the input array
+func ArrayColum(s [] map[string] interface{}, string key) []interface{} {
+	n := len(s)
+	ret = make([]interface{}, n)
+	for k,v := range s {
+		ret[k] = s[k][key]
+	}
+	return ret
+}
