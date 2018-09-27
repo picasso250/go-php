@@ -185,3 +185,29 @@ func ArrayChunk(s []interface{}, size int) [][]interface{} {
 	return ret
 }
 	
+// ArrayDiff array_diff — Computes the difference of arrays
+function ArrayDiff(a []string, b...[]string) {
+	m := make(map[string]int, len(a))
+	for k,v := range a {
+		m[v] = 0
+	}
+	
+	for _,_b := range b {
+		for k,v := range _b {
+			_,ok := m[v]
+			if ok {
+				m[v]++
+			}
+		}
+	}
+	
+	ret := make([]string)
+	for k,v := range m {
+		if v == 0 {
+			ret = append(ret, v)
+		}
+	}
+}
+	
+			
+		
