@@ -166,3 +166,22 @@ func ArrayColum(s [] map[string] interface{}, string key) []interface{} {
 	}
 	return ret
 }
+
+// ArrayChunk array_chunk — Split an array into chunks
+func ArrayChunk(s []interface{}, size int) [][]interface{} {
+	if (size < 1) {
+		panic("Size parameter expected to be greater than 0")
+	}
+	n_ := len(s)
+	n = n_ / size
+	if !(n*size == n_) {
+		n += 1
+	}
+	ret = make([][]interface{}, n)
+	for i:=0; i<n-1; i++ {
+		ret[i] = s[i*size:size]
+	}
+	ret[i] = s[i*size:]
+	return ret
+}
+	
