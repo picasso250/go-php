@@ -208,6 +208,34 @@ function ArrayDiff(a []string, b...[]string) {
 		}
 	}
 }
+
+// array_filter — Filters elements of an array using a callback function
+func ArrayFilterSlice(a[]interface{}, f func(interface{}) bool) ret []interface{} {
+	for _,v := range a {
+		if f(v) {
+			ret = append(ret, v)
+		}
+	}
+}
+func ArrayFilterMap(a map[string]interface{}, f func(interface{}) bool) ret [string]interface{} {
+	for k,v := range a {
+		if f(v) {
+			ret[k] = v
+		}
+	}
+}
+
+// array_map — Applies the callback to the elements of the given arrays
+func ArrayMapSlice(a[]interface{}, f func(interface{}) bool) ret []interface{} {
+	ret = make([]interface{}, len(a))
+	for k,v := range a {
+		ret[k] = f(v)
+	}
+}
+func ArrayMap(a map[string]interface{}, f func(interface{}) bool) ret [string]interface{} {
+	ret = make(map[string]interface{})
+	for k,v := range a {
+		ret[k] = f(v)
+	}
+}
 	
-			
-		
